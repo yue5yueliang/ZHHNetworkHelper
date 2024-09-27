@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZHHNetworkHelper'
-  s.version          = '0.0.1'
+  s.version          = '0.0.3'
   s.summary          = '基于AFNetworking封装的网络请求缓存工具类'
 
 # This description is used to generate tags and improve search results.
