@@ -10,6 +10,7 @@ target 'ZHHNetworkHelper_Example' do
   pod 'MJExtension'
   pod 'Masonry'
   pod 'ZHHUnicodeReadable'
+  pod 'YYText'
   
   target 'ZHHNetworkHelper_Tests' do
     inherit! :search_paths

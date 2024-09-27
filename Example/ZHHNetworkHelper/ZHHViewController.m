@@ -10,6 +10,7 @@
 #import <Masonry/Masonry.h>
 #import "ZHHNetworkHelper.h"
 #import "ZHHNetwrokManage.h"
+#import <YYText/YYText.h>
 
 static NSString *const downloadUrl = @"https://dyy1.jb51.net/201906/tools/GitHubDesktop_jb51.zip";
 
@@ -22,6 +23,8 @@ static NSString *const downloadUrl = @"https://dyy1.jb51.net/201906/tools/GitHub
 @property (strong, nonatomic) UISwitch *cacheSwitch;
 @property (strong, nonatomic) UIProgressView *progress;
 @property (strong, nonatomic) UIButton *downloadBtn;
+@property (nonatomic, strong) YYLabel *termsAndPrivacyLabel;
+
 /** 是否开启缓存*/
 @property (nonatomic, assign, getter=isCache) BOOL cache;
 /** 是否开始下载*/
@@ -284,5 +287,58 @@ static NSString *const downloadUrl = @"https://dyy1.jb51.net/201906/tools/GitHub
         make.centerX.equalTo(self.view);
         make.top.equalTo(self.progress.mas_bottom).offset(20);
     }];
+}
+
+- (YYLabel *)termsAndPrivacyLabel {
+    if (!_termsAndPrivacyLabel) {
+        // 创建 YYLabel
+        YYLabel *label = [[YYLabel alloc] init];
+        label.numberOfLines = 0; // 支持多行
+        
+        NSString *fullText = @"登录即表示您同意我们的使用条款和隐私政策。";
+        NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:fullText];
+        
+        // 设置字体和默认颜色
+        attributedText.yy_font = [UIFont systemFontOfSize:14];
+        attributedText.yy_color = UIColor.redColor;
+        
+        // 设置“使用条款”可点击，并设置高亮颜色
+        NSRange termsRange = [fullText rangeOfString:@"使用条款"];
+        [attributedText yy_setColor:UIColor.redColor range:termsRange];  // 设置“使用条款”默认颜色为红色
+        
+        YYTextHighlight *highlightTerms = [YYTextHighlight new];
+        highlightTerms.userInfo = @{@"id":@(100)};
+        [highlightTerms setColor:UIColor.redColor];  // 点击时文字的高亮颜色
+        [highlightTerms setBackgroundBorder:[YYTextBorder borderWithFillColor:UIColor.clearColor cornerRadius:10]];  // 点击时的背景颜色
+        [highlightTerms setTapAction:^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
+            // 调用点击使用条款的方法
+//            [self didTapTermsOfService];
+        }];
+        [attributedText yy_setTextHighlight:highlightTerms range:termsRange];
+        
+        // 设置“隐私政策”可点击，并设置高亮颜色
+        NSRange privacyRange = [fullText rangeOfString:@"隐私政策"];
+        [attributedText yy_setColor:UIColor.redColor range:privacyRange];  // 设置“使用条款”默认颜色为红色
+        
+        YYTextHighlight *highlightPrivacy = [YYTextHighlight new];
+        highlightPrivacy.userInfo = @{@"id":@(200)};
+        [highlightPrivacy setColor:UIColor.redColor];  // 点击时文字的高亮颜色
+        [highlightPrivacy setBackgroundBorder:[YYTextBorder borderWithFillColor:UIColor.clearColor cornerRadius:10]];  // 点击时的背景颜色
+        [highlightPrivacy setTapAction:^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
+            // 调用点击隐私政策的方法
+//            [self didTapPrivacyPolicy];
+        }];
+        [attributedText yy_setTextHighlight:highlightPrivacy range:privacyRange];
+        
+        // 设置文字间距
+        [attributedText yy_setKern:@(0.3) range:NSMakeRange(0, attributedText.length)];  // 设置文字间距
+        
+        // 设置 label 的富文本
+        label.attributedText = attributedText;
+        _termsAndPrivacyLabel = label;
+        [_termsAndPrivacyLabel sizeToFit];
+        _termsAndPrivacyLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _termsAndPrivacyLabel;
 }
 @end

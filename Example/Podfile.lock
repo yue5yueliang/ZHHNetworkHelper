@@ -17,6 +17,7 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.4.1)
   - YYCache (1.0.4)
+  - YYText (1.0.7)
   - ZHHNetworkHelper (0.0.1):
     - AFNetworking
     - YYCache
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - Masonry
   - MJExtension
+  - YYText
   - ZHHNetworkHelper (from `../`)
   - ZHHUnicodeReadable
 
@@ -34,6 +36,7 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - YYCache
+    - YYText
     - ZHHUnicodeReadable
 
 EXTERNAL SOURCES:
@@ -41,13 +44,14 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   ZHHNetworkHelper: 202af20aaca9c9be339dcdcad49c797646e343e9
   ZHHUnicodeReadable: bb80b8141d9ac7ad0e6a95c8aa45700f66759493
 
-PODFILE CHECKSUM: b97ec1da30e98d2d9804bbaf0e97756f28ce1b90
+PODFILE CHECKSUM: c91055841a7529ddbfffdf07c1284ed91bfd2f06
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.15.2
