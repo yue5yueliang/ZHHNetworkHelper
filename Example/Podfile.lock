@@ -18,7 +18,7 @@ PODS:
   - MJExtension (3.4.1)
   - YYCache (1.0.4)
   - YYText (1.0.7)
-  - ZHHNetworkHelper (0.0.1):
+  - ZHHNetworkHelper (0.1.0):
     - AFNetworking
     - YYCache
   - ZHHUnicodeReadable (0.0.1)
@@ -49,9 +49,9 @@ SPEC CHECKSUMS:
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
-  ZHHNetworkHelper: 202af20aaca9c9be339dcdcad49c797646e343e9
+  ZHHNetworkHelper: fcac1a476dc6953987129f7e942230f72c0e6664
   ZHHUnicodeReadable: bb80b8141d9ac7ad0e6a95c8aa45700f66759493
 
-PODFILE CHECKSUM: c91055841a7529ddbfffdf07c1284ed91bfd2f06
+PODFILE CHECKSUM: 2944b60667091b54f0592d5f690a41eff28a2e83
 
 COCOAPODS: 1.15.2
